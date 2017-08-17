@@ -1,0 +1,62 @@
+﻿@model IEnumerable<SZamoranoShoppingApp.Models.CodeFirst.Item>
+
+    @if(User.IsInRole("Admin"))
+{
+    @Html.ActionLink("Creat New", "Create")
+}
+
+    <!-- Display product content -->
+    <div class="w3-row">
+            @foreach(var item in Model)
+            { 
+                <div class="w3-col l3">
+                        <div class="w3-container">
+                            <a href="@Url.Action("Details", "Items", new {id = item.Id})">
+
+                            <img src="@Url.Content(item.MediaURL)" style="width:100%">
+                            <p>@item.Name<br><b>$@item.Price</b></p></a>
+                        </div>
+                </div>
+            }
+    </div>
+            <!--<div class="w3-container">
+                <img src="~/Assets/Images/m2.jpg" style="width:100%">
+                <p>CFW-550<br><b>$1500.00</b></p>
+            </div>
+        </div>
+        <div class="w3-col l3">
+            <div class="w3-container">
+                <img src="~/Assets/Images/m3.jpg" style="width:100%">
+                <p>CFW-1100<br><b>$1600.00</b></p>
+            </div>
+            <div class="w3-container">
+                <img src="~/Assets/Images/m5.jpg" style="width:100%">
+                <p>CFW-1200<br><b>$1650.00</b></p>
+            </div>
+        </div>
+
+        <div class="w3-col l3">
+            <div class="w3-container">
+                <img src="~/Assets/Images/m6.jpg" style="width:100%">
+                <p>CFW-850<br><b>$1550.00</b></p>
+            </div>
+            <div class="w3-container">
+                <img src="~/Assets/Images/m7.jpg" style="width:100%">
+                <p>CFW-650<br><b>$950.00</b></p>
+            </div>
+        </div>
+
+        <div class="w3-col l3">
+            <div class="w3-container">
+                <img src="~/Assets/Images/m8.jpg" style="width:100%">
+                <p>CFW-2500<br><b>$8700.00</b></p>
+            </div>
+            <div class="w3-container">
+                <img src="~/Assets/Images/m9.jpg" style="width:100%">
+                <p>CFW-5500<br><b>$15000.00</b></p>
+            </div>
+        </div>
+    </div>-->
+
+
+  
