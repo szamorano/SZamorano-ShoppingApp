@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.AspNet.Identity;
+using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Data.Entity;
@@ -11,13 +12,19 @@ using SZamoranoShoppingApp.Models.CodeFirst;
 
 namespace SZamoranoShoppingApp.Controllers
 {
-    public class CartItemsController : Controller
+    public class CartItemsController : Universal
     {
-        private ApplicationDbContext db = new ApplicationDbContext();
+
 
         // GET: CartItems
+        [Authorize]
         public ActionResult Index()
         {
+            var user = db.Users.Find(User.Identity.GetUserId());
+
+            ViewBag.FirstName = user.FirstName;
+            ViewBag.LastName = user.LastName;
+            ViewBag.FullName = user.FullName;
             return View(db.CartItems.ToList());
         }
 
@@ -37,26 +44,43 @@ namespace SZamoranoShoppingApp.Controllers
         }
 
         // GET: CartItems/Create
-        public ActionResult Create()
-        {
-            return View();
-        }
+        //public ActionResult Create()
+        //{
+        //    return View();
+        //}
 
         // POST: CartItems/Create
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "Id,ItemId,Count,CreationDate,CustomerId")] CartItem cartItem)
+        public ActionResult Create(int? id)
         {
-            if (ModelState.IsValid)
+            if(id != null)
             {
-                db.CartItems.Add(cartItem);
+                var duplicateItem = db.CartItems.FirstOrDefault(c => c.ItemId == id);
+                if(duplicateItem == null)
+                {
+                    var user = db.Users.Find(User.Identity.GetUserId());
+                    CartItem cartItem = new CartItem();
+                    cartItem.ItemId = id.Value;
+                    cartItem.CustomerId = user.Id;
+                    cartItem.Count = 1;
+                    cartItem.CreationDate = DateTime.Now;
+                    db.CartItems.Add(cartItem);
+                }
+                else
+                {
+                    duplicateItem.Count++;
+                    db.CartItems.Attach(duplicateItem);
+                    db.Entry(duplicateItem).Property("Count").IsModified = true;
+                }
+                
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
 
-            return View(cartItem);
+            return View();
         }
 
         // GET: CartItems/Edit/5

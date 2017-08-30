@@ -3,10 +3,11 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using SZamoranoShoppingApp.Models;
 
 namespace SZamoranoShoppingApp.Controllers
 {
-    public class HomeController : Controller
+    public class HomeController : Universal
     {
         public ActionResult Index()
         {

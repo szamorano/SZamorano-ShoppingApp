@@ -21,7 +21,7 @@ namespace SZamoranoShoppingApp.Models.CodeFirst
         public string OrderDetails { get; set; }
 
         public virtual ApplicationUser Customer { get; set; }              // COMMENT OUT THESE VIRTUAL PROPERTIES OUT WHEN ADDING CONTROLLERS; DEPENDENCY ISSUES; REMEMBER TO "UPDATE DATABASE" AFTERWARDS
-        public virtual ICollection<OrderItem> OrderItem { get; set; }      // COMMENT OUT THESE VIRTUAL PROPERTIES OUT WHEN ADDING CONTROLLERS; DEPENDENCY ISSUES; REMEMBER TO "UPDATE DATABASE" AFTERWARDS
+        public virtual ICollection<OrderItem> OrderItems { get; set; }     // COMMENT OUT THESE VIRTUAL PROPERTIES OUT WHEN ADDING CONTROLLERS; DEPENDENCY ISSUES; REMEMBER TO "UPDATE DATABASE" AFTERWARDS
 
     }
 }

@@ -1,0 +1,160 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>Watches E-Commerce Site Front End</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" />
+    <link href="~/Assets/myCustomCSS.css" rel="stylesheet" />
+
+</head>
+<body>
+    <!--NAVIGATION-->
+    <nav class="navbar navbar-inverse">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <a class="navbar-brand" href="#">LOGO</a>
+            </div>
+            <ul class="nav navbar-nav">
+                <li><a href="#">CFW Series</a></li>
+                <li><a href="#">CFAW Series</a></li>
+                <li class="dropdown">
+                    <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+                        Collection
+                        <span class="caret"></span>
+                    </a>
+                    <ul class="dropdown-menu">
+                        <li><a href="#">2017</a></li>
+                        <li><a href="#">2016</a></li>
+                        <li><a href="#">2015</a></li>
+                        <li><a href="#">2014</a></li>
+                    </ul>
+                </li>
+                <li class="dropdown">
+                    <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+                        Accessories
+                        <span class="caret"></span>
+                    </a>
+                    <ul class="dropdown-menu">
+                        <li><a href="#">Straps</a></li>
+                        <li><a href="#">Parts</a></li>
+                        <li><a href="#">Tools</a></li>
+                        <li><a href="#">Other Accessories</a></li>
+                    </ul>
+                </li>
+            </ul>
+            <ul class="nav navbar-nav navbar-right" style="margin-left:-30px">
+                <li><a href="#">Contact</a></li>
+                <li><a href="#">Newsletter</a></li>
+                <li><a href="#">Subscribe</a></li>
+                @*<li><a href="#"><span class="glyphicon glyphicon-user"></span> Register</a></li>
+                <li><a href="#"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>*@
+                @Html.Partial("_LoginPartial")
+            </ul>
+        </div>
+    </nav>
+
+
+
+    <!--ICONS HEADER-->
+    <div class="container icons-header">
+        <p class="text-right">
+            @if (Request.IsAuthenticated)
+            {
+
+            <a href="#"><span class="fa fa-shopping-cart"></span>@ViewBag.CartItems.Count</a>
+            }
+            <a href="#"><span class="fa fa-search"></span></a>
+        </p>
+    </div>
+
+    <!--IMAGE HEADER-->
+    <div class="container">
+        <img src="~/Assets/Images/3.jpg" alt="Watch" style="width:100%">
+        <div class="topleft">
+            <h1 style="font-size:6em">New Arrivals</h1>
+            <h1>COLLECTION 2017</h1>
+            <a href="#" class="btn btn-primary" role="button">SHOP NOW</a>
+        </div>
+    </div>
+
+    <div class="container items-row">
+        <p>
+            8 items
+            <span class="pull-right btn-default">
+
+                @if (User.IsInRole("Admin"))
+            {
+                    @Html.ActionLink("Create New", "Create")
+                }
+            </span>
+        </p>
+    </div>
+
+    @RenderBody()
+
+
+
+
+
+    <!-- SUBSCRIBE SECTION -->
+    <div class="container subscribe" style="background-color:black">
+        <h1 style="color:white">Subscribe</h1>
+        <p style="color:white">To get special offers and <span style="color:red">VIP</span> treatment:</p>
+        <p><input type="text" placeholder="Enter e-mail" style="width:100%"></p>
+        <button type="button" class="btn btn-danger">Subscribe</button>
+    </div>
+
+    <!-- FOOTER -->
+    <footer class="container footer" style="background-color:lightgray">
+        <div class="col-sm-4">
+            <h3 style="font-weight:bold">Contact</h3>
+            <p>Questions? Go ahead.</p>
+            <form action="/action_page.php" target="_blank">
+                <p><input class="w3-input w3-border" style="width:20em" type="text" placeholder="Name" name="Name" required></p>
+                <p><input class="w3-input w3-border" style="width:20em" type="text" placeholder="Email" name="Email" required></p>
+                <p><input class="w3-input w3-border" style="width:20em" type="text" placeholder="Subject" name="Subject" required></p>
+                <p><input class="w3-input w3-border" style="width:20em" type="text" placeholder="Message" name="Message" required></p>
+                <button type="button" class="btn btn-primary" style="width:20em">Send</button>
+            </form>
+        </div>
+
+        <div class="col-sm-4">
+            <h3 style="font-weight:bold">About</h3>
+            <p><a href="#">About us</a></p>
+            <p><a href="#">We're hiring</a></p>
+            <p><a href="#">Support</a></p>
+            <p><a href="javascript:void(0)" class="btn btn-link" onclick="document.getElementById('findstore').style.display='block'">Find store</a></p>
+            <p><a href="#">Shipment</a></p>
+            <p><a href="#">Payment</a></p>
+            <p><a href="#">Gift card</a></p>
+            <p><a href="#">Return</a></p>
+            <p><a href="#">Help</a></p>
+        </div>
+
+        <div class="col-sm-4">
+            <h3 style="font-weight:bold">Store</h3>
+            <p><i class="fa fa-fw fa-map-marker"></i> Company Name</p>
+            <p><i class="fa fa-fw fa-phone"></i> 0044123123</p>
+            <p><i class="fa fa-fw fa-envelope"></i> ex@mail.com</p>
+            <h4>We accept</h4>
+            <p><i class="fa fa-fw fa-cc-amex"></i> Amex</p>
+            <p><i class="fa fa-fw fa-credit-card"></i> Credit Card</p>
+            <br>
+            <i class="fa fa-facebook-official w3-hover-opacity w3-large"></i>
+            <i class="fa fa-instagram w3-hover-opacity w3-large"></i>
+            <i class="fa fa-snapchat w3-hover-opacity w3-large"></i>
+            <i class="fa fa-pinterest-p w3-hover-opacity w3-large"></i>
+            <i class="fa fa-twitter w3-hover-opacity w3-large"></i>
+            <i class="fa fa-linkedin w3-hover-opacity w3-large"></i>
+        </div>
+
+    </footer>
+    <div class="container" style="background-color:black">
+        <div style="padding:3em; color:white; text-align:center">Powered by <a href="https://www.coderfoundry.com" title="CoderFoundry" target="_blank" class="w3-hover-opacity">CoderFoundry</a> &copy;Copyright CoderFoundry</div>
+    </div>
+    <script src="~/Scripts/jquery-1.10.2.min.js"></script>
+    @RenderSection("scripts", required: false)
+</body>
+</html>

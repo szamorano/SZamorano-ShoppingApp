@@ -13,7 +13,7 @@ using SZamoranoShoppingApp.Models;
 namespace SZamoranoShoppingApp.Controllers
 {
     [Authorize]
-    public class AccountController : Controller
+    public class AccountController : Universal
     {
         private ApplicationSignInManager _signInManager;
         private ApplicationUserManager _userManager;
@@ -79,7 +79,12 @@ namespace SZamoranoShoppingApp.Controllers
             switch (result)
             {
                 case SignInStatus.Success:
-                    return RedirectToLocal(returnUrl);
+                    if(returnUrl != null)
+                    {
+                        return RedirectToLocal(returnUrl);
+                    }
+
+                    return RedirectToAction("Index", "Items");
                 case SignInStatus.LockedOut:
                     return View("Lockout");
                 case SignInStatus.RequiresVerification:

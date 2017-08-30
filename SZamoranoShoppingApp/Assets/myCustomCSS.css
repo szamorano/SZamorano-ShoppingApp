@@ -1,0 +1,32 @@
+﻿.icons-header .fa {
+    font-size: 1.5em;
+    padding: 1em;
+}
+
+.container {
+    position: relative;
+}
+
+.topleft {
+    position: absolute;
+    top: 60px;
+    left: 80px;
+    color:white;
+}
+
+.items-row{
+    top:.5em;
+    bottom:.5em;
+    left:.5em;
+    color:grey;
+    font-size:1.5em;
+}
+
+.subscribe {
+    padding:3em;
+}
+
+.footer {
+    padding: 3em;
+    text-align:center;
+}
