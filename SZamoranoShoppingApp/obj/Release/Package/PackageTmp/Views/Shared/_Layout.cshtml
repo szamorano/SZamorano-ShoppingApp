@@ -63,33 +63,21 @@
             @if (Request.IsAuthenticated)
             {
 
-            <a href="#"><span class="fa fa-shopping-cart"></span>@ViewBag.CartItems.Count</a>
+            <a href="@Url.Action("Index","CartItems")"><span class="fa fa-shopping-cart"></span>@ViewBag.CartItems</a>
             }
             <a href="#"><span class="fa fa-search"></span></a>
         </p>
     </div>
 
     <!--IMAGE HEADER-->
-    <div class="container">
+    <div class="container img-responsive">
         <img src="~/Assets/Images/3.jpg" alt="Watch" style="width:100%">
         <div class="topleft">
             <h1 style="font-size:6em">New Arrivals</h1>
             <h1>COLLECTION 2017</h1>
+            @*<a href="@Url.Action("Index","Items class="btn btn-primary" role="button">SHOP NOW</a>*@
             <a href="#" class="btn btn-primary" role="button">SHOP NOW</a>
         </div>
-    </div>
-
-    <div class="container items-row">
-        <p>
-            8 items
-            <span class="pull-right btn-default">
-
-                @if (User.IsInRole("Admin"))
-            {
-                    @Html.ActionLink("Create New", "Create")
-                }
-            </span>
-        </p>
     </div>
 
     @RenderBody()
