@@ -4,17 +4,37 @@
     <meta charset="utf-8" />
     <title>Watches E-Commerce Site Front End</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet" />
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" />
     <link href="~/Assets/myCustomCSS.css" rel="stylesheet" />
-    
+    <script src="//netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
+    <link href="https://fonts.googleapis.com/css?family=Julius+Sans+One" rel="stylesheet">
+    <style>
+        /* SEARCHBOX */
+
+        .stylish-input-group .input-group-addon {
+            background: white !important;
+        }
+
+        .stylish-input-group .form-control {
+            border-right: 0;
+            box-shadow: 0 0 0;
+            border-color: #ccc;
+        }
+
+        .stylish-input-group button {
+            border: 0;
+            background: transparent;
+        }
+    </style>
 </head>
 <body>
     <!--NAVIGATION-->
     <nav class="navbar navbar-inverse">
         <div class="container-fluid">
             <div class="navbar-header">
-                <a class="navbar-brand" href="#">LOGO</a>
+                <a class="navbar-brand" href="@Url.Action("Index","Items")">LOGO</a>
             </div>
             <ul class="nav navbar-nav">
                 <li><a href="#">CFW Series</a></li>
@@ -68,11 +88,15 @@
             @*<a href="#"><span class="fa fa-search"></span></a>*@
 
         </p>
+@using (Html.BeginForm("SearchResults", "Items", FormMethod.Post))
+{
         <div class="row" style="padding-bottom:2em">
             <div class="col-sm-6 col-sm-offset-3">
                 <div id="imaginary_container">
                     <div class="input-group stylish-input-group">
-                        <input type="text" class="form-control" placeholder="Search">
+                        @*@using (Html.BeginForm("SearchResults", "Items", FormMethod.Post))
+                        {*@ 
+                        <input type="text" class="form-control" name="searchItem" id="searchItem" placeholder="Search">
                         <span class="input-group-addon">
                             <button type="submit">
                                 <span class="glyphicon glyphicon-search"></span>
@@ -82,7 +106,7 @@
                 </div>
             </div>
         </div>
-        
+}
     </div>
 
 
@@ -94,8 +118,8 @@
         <div class="topleft">
             <h1 style="font-size:6em">New Arrivals</h1>
             <h1>COLLECTION 2017</h1>
-            @*<a href="@Url.Action("Index","Items class="btn btn-primary" role="button">SHOP NOW</a>*@
-            <a href="#" class="btn btn-primary" role="button">SHOP NOW</a>
+                @Html.ActionLink("Shop Now","Index","Items", null, new {@class="btn btn-primary"})
+            @*<a href="#" class="btn btn-primary" role="button">SHOP NOW</a>*@
         </div>
     </div>
 

@@ -22,6 +22,16 @@ namespace SZamoranoShoppingApp.Controllers
             return View(db.Items.ToList());
         }
 
+        public ActionResult SearchResults(string searchItem)
+        {
+            return View(db.Items.Where(i => i.Name.Contains(searchItem) || i.Description.Contains(searchItem)).ToList());
+        }
+
+
+
+
+
+
         // GET: Items/Details/5
         public ActionResult Details(int? id)
         {
