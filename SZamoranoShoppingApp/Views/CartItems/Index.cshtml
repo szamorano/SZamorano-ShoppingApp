@@ -6,8 +6,8 @@
         ViewBag.Title = "Index";
     }
 
-    <h2>Cart Index <a class="btn btn-success pull-right" href="@Url.Action("Create","Orders")">Proceed to Checkout</a></h2><br />
-    <span class="pull-right" style="font-size: 18px; color: red">@ViewBag.CartTotal</span>
+    <h2>Your Shopping Cart <a class="btn btn-success pull-right" href="@Url.Action("Create","Orders")">Proceed to Checkout</a></h2><br />
+    <span class="pull-right" style="font-size: 18px; color: black">@ViewBag.CartTotal</span>
 
     @*<p>
         @Html.ActionLink("Create New", "Create")

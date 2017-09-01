@@ -9,7 +9,7 @@
 
                 @if (User.IsInRole("Admin"))
                 {
-                    @Html.ActionLink("Create New", "Create")
+                    @Html.ActionLink("Create New", "Create", null, new { @class = "btn btn-warning" })
                 }
             </span>
         </p>
@@ -19,7 +19,7 @@
         {
             <div class="col-sm-3">
                 <a href="@Url.Action("Details", "Items", new {id = item.Id})">
-                    <img src="@Url.Content(item.MediaURL)" style="width:100%">
+                    <img src="@Url.Content(item.MediaURL)" style="width:100%; padding-top:1em">
                     <p>@item.Name<br><b>$@item.Price</b></p>
                     @if (Request.IsAuthenticated)
                     {
