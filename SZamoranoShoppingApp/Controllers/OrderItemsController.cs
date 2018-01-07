@@ -12,6 +12,7 @@ using SZamoranoShoppingApp.Models.CodeFirst;
 
 namespace SZamoranoShoppingApp.Controllers
 {
+    [Authorize]
     public class OrderItemsController : Universal
     {
 

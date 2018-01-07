@@ -94,3 +94,4 @@ C:\Users\User\Documents\Visual Studio 2017\Projects\SZamoranoShoppingApp\SZamora
 C:\Users\User\Documents\Visual Studio 2017\Projects\SZamoranoShoppingApp\SZamoranoShoppingApp\obj\Debug\SZamoranoShoppingApp.dll
 C:\Users\User\Documents\Visual Studio 2017\Projects\SZamoranoShoppingApp\SZamoranoShoppingApp\obj\Debug\SZamoranoShoppingApp.pdb
 C:\Users\User\Documents\Visual Studio 2017\Projects\SZamoranoShoppingApp\SZamoranoShoppingApp\obj\Debug\SZamoranoShoppingApp.csprojResolveAssemblyReference.cache
+C:\Users\User\documents\visual studio 2017\Projects\SZamoranoShoppingApp\SZamoranoShoppingApp\obj\Debug\SZamoranoShoppingApp.csproj.CoreCompileInputs.cache

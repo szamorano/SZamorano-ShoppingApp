@@ -217,6 +217,8 @@
     <Content Include="Assets\Content\bootstrap.min.css" />
     <Content Include="Assets\fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Assets\Images\3.jpg" />
+    <Content Include="Assets\Images\ALEXIS-Round-Slim-font-b-Violet-b-font-Band-PNP-Shiny-Silver-Watchcase-Ladies-Women-Fashion.jpg" />
+    <Content Include="Assets\Images\balltrainmastermoonphase.jpg" />
     <Content Include="Assets\Images\m1.jpg" />
     <Content Include="Assets\Images\m2.jpg" />
     <Content Include="Assets\Images\m3.jpg" />
@@ -225,6 +227,8 @@
     <Content Include="Assets\Images\m7.jpg" />
     <Content Include="Assets\Images\m8.jpg" />
     <Content Include="Assets\Images\m9.jpg" />
+    <Content Include="Assets\Images\rolexyachtmaster40mm.jpg" />
+    <Content Include="Assets\Images\ww1limitadafolded.jpg" />
     <Content Include="Scripts\tinymce\jquery.tinymce.min.js" />
     <Content Include="Scripts\tinymce\license.txt" />
     <Content Include="Scripts\tinymce\plugins\advlist\plugin.js" />

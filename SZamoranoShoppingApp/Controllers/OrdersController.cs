@@ -12,6 +12,7 @@ using SZamoranoShoppingApp.Models.CodeFirst;
 
 namespace SZamoranoShoppingApp.Controllers
 {
+    [Authorize]
     public class OrdersController : Universal
     {
 
@@ -19,7 +20,9 @@ namespace SZamoranoShoppingApp.Controllers
         // GET: Orders
         public ActionResult Index()
         {
-            return View(db.Orders.ToList());
+            var user = db.Users.Find(User.Identity.GetUserId());
+            return View(user.Orders.ToList());
+
         }
 
         // GET: Orders/Details/5

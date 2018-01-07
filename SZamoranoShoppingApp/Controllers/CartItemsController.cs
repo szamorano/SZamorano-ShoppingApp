@@ -12,6 +12,7 @@ using SZamoranoShoppingApp.Models.CodeFirst;
 
 namespace SZamoranoShoppingApp.Controllers
 {
+    [Authorize]
     public class CartItemsController : Universal
     {
 
@@ -25,7 +26,7 @@ namespace SZamoranoShoppingApp.Controllers
             ViewBag.FirstName = user.FirstName;
             ViewBag.LastName = user.LastName;
             ViewBag.FullName = user.FullName;
-            return View(db.CartItems.ToList());
+            return View(user.CartItems.ToList());
         }
 
         // GET: CartItems/Details/5
